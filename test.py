@@ -3,7 +3,7 @@ import pyodbc
 import hashlib
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTableWidget, QTableWidgetItem,
-    QInputDialog, QMessageBox, QLineEdit, QLabel, QFormLayout, QDialog, QDialogButtonBox
+    QInputDialog, QMessageBox, QLineEdit, QLabel, QFormLayout, QDialog, QDialogButtonBox,
 )
 from PyQt5.QtGui import QIcon
 
