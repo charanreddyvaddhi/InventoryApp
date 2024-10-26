@@ -1,0 +1,29 @@
+Database Name: [Inv] 
+
+Tables Details are as below 
+``````````````````````````````````````
+Table1: [dbo].[WindowsCluster] 
+	[WinClusterID], [WinClusterIP], [WinClusterName]
+Table2: [dbo].[Node]
+	[NodeID], [NodeIP], [NodeName], [NodeOSVersion], [NodeComments], [WinClusterID]
+Table3: [dbo].[SQLCluster]
+	[SQLClusterID], [SQLClusterIP], [SQLClusterName], [SQLType], [SQLInstanceName], [SQLPort], [SQLServerVersion], [NARsRaised], [SQLComments], [SQLServerEdition], [MSDTCIP]
+Table4: [dbo].[Application]
+	[ApplicationID], [AppName], [AppOwner], [AppOwnerEmail], [AppVersion], [AppDepartment], [AppComments], [AppCriticality]
+Table5: [dbo].[NodeSQLCluster] -- Join Table Between Node and SQL Cluster 
+	[NodeID], [SQLClusterID]
+Table6: [dbo].[SQLClusterApplication] -- Join Table between SQL Cluster and Application 
+	[SQLClusterID], [ApplicationID]
+
+
+Stored Procuders Details are as below
+````````````````````````````````````````````````
+[dbo].[InsertAllData]
+[dbo].[InsertOrMapData]
+[dbo].[Search_All_Clusters]
+[dbo].[Search_WinClusters] -- For Testing of Seach Functionality
+[dbo].[Select_All_Data]
+[dbo].[Select_All_Data_old] -- Old One Not Needed Now
+
+
+
