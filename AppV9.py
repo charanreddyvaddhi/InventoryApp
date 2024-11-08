@@ -243,6 +243,7 @@ class MainWindow(QMainWindow):
 #Search Method  
     def Search_Inventory(self):
         search_term = self.searchInput.text()
+        print(search_term)
         if not search_term: #if search is null or empty gives all Data
             self.view_Inventory()  # Display all data if search term is empty
             return
@@ -261,8 +262,6 @@ class MainWindow(QMainWindow):
 
         except Exception as e:
             QMessageBox.warning(self, "Search Error", f"Failed to execute search: {e}")
-
-
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Mapping Meathods  
@@ -387,14 +386,16 @@ class MainWindow(QMainWindow):
         add_button.clicked.connect(self.add_windows_cluster)   
         update_button.clicked.connect(self.update_windows_cluster)
         delete_button.clicked.connect(self.delete_windows_cluster)
+        search_button.clicked.connect(self.Search_Inventory)
         
         button_layout.addWidget(view_button)
         button_layout.addWidget(add_button)
         button_layout.addWidget(update_button)
         button_layout.addWidget(delete_button)
+
         
         button_size = QSize(80, 30)  # Set custom button size
-        for button in [add_button, delete_button, update_button, view_button]:
+        for button in [add_button, delete_button, update_button, view_button ]:
             button.setFixedSize(button_size)  # Applying size to each botton 
 
         table_layout = QVBoxLayout()
