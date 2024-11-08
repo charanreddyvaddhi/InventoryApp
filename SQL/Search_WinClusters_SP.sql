@@ -1,7 +1,7 @@
 USE [Inv]
 GO
 
-/****** Object:  StoredProcedure [dbo].[Search_WinClusters]    Script Date: 26-10-2024 18:38:57 ******/
+/****** Object:  StoredProcedure [dbo].[Search_WinClusters]    Script Date: 09-11-2024 01:15:08 ******/
 SET ANSI_NULLS ON
 GO
 
