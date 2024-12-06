@@ -3,16 +3,18 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from PyQt5.QtWidgets import QFormLayout, QLineEdit, QComboBox, QDialogButtonBox
+from database import get_sqltype, get_sqlversion, get_edition
 from forms.style_of_form import StyleOfForm
+from PyQt5.QtGui import QIcon
 
 class SQLClusterForm(StyleOfForm):
     def __init__(self, parent=None, 
-                 SQLClusterID=0, SQLClusterIP='***.***.***.***', SQLClusterName='', SQLType='', SQLInstanceName='', SQLPort='1433', SQLServerVersion='', 
-                 NARsRaised='None', SQLComments='None', SQLServerEdition='', MSDTCIP=''):
+                 SQLClusterID=0000, SQLClusterIP='***.***.***.***', SQLClusterName='.STC.CORP', SQLType='', SQLInstanceName='', SQLPort='1433', SQLServerVersion='', 
+                 NARsRaised='NAR', SQLComments='None', SQLServerEdition='', MSDTCIP='***.***.***.***'):
         super().__init__(parent)
         self.setWindowTitle('SQL Cluster Form')
         self.setGeometry(50, 50, 400, 300)
-
+        self.setWindowIcon(QIcon("Forms.ico"))
         layout = QFormLayout()
 
         # SQL Cluster inputs
@@ -22,21 +24,24 @@ class SQLClusterForm(StyleOfForm):
         self.sqlClustIP_input.setText(SQLClusterIP)
         self.sqlClustName_input = QLineEdit(self)
         self.sqlClustName_input.setText(SQLClusterName)
-        self.sqlType_input = QLineEdit(self)
-        self.sqlType_input.setText(SQLType)
+        self.sqlType_input = QComboBox(self)
+        self.sqlType_input.addItems(get_sqltype())
+        self.sqlType_input.setCurrentText(SQLType) 
+        #self.sqlType_input = QLineEdit(self)
+        #self.sqlType_input.setText(SQLType)
         self.sqlInstanceName_input = QLineEdit(self)
         self.sqlInstanceName_input.setText(SQLInstanceName)
         self.sqlPort_input = QLineEdit(self)
         self.sqlPort_input.setText(str(SQLPort))
         self.sqlserverversion_input = QComboBox(self)
-        self.sqlserverversion_input.addItems(["Microsoft SQL Server 2012", "Microsoft SQL Server 2014", "Microsoft SQL Server 2016", "Microsoft SQL Server 2019", "Microsoft SQL Server 2022"])
+        self.sqlserverversion_input.addItems(get_sqlversion())
         self.sqlserverversion_input.setCurrentText(SQLServerVersion)
         self.narsRaised_input = QLineEdit(self)
         self.narsRaised_input.setText(NARsRaised)
         self.sqlComments_input = QLineEdit(self)
         self.sqlComments_input.setText(SQLComments)
         self.sqlServerEdition_input = QComboBox(self)
-        self.sqlServerEdition_input.addItems(["Web", "Express Edition", "Developer Edition", "Standard Edition", "Enterprise Edition"])
+        self.sqlServerEdition_input.addItems(get_edition())
         self.sqlServerEdition_input.setCurrentText(SQLServerEdition)
         self.msdtcIP_input = QLineEdit(self)
         self.msdtcIP_input.setText(MSDTCIP)
@@ -65,6 +70,6 @@ class SQLClusterForm(StyleOfForm):
     def get_data(self):
         # Collect and return SQL Cluster data
         return (self.sqlClustId_input.text(), self.sqlClustIP_input.text(), self.sqlClustName_input.text(),
-                self.sqlType_input.text(), self.sqlInstanceName_input.text(), self.sqlPort_input.text(),
+                self.sqlType_input.currentText(), self.sqlInstanceName_input.text(), self.sqlPort_input.text(),
                 self.sqlserverversion_input.currentText(), self.narsRaised_input.text(),
                 self.sqlComments_input.text(), self.sqlServerEdition_input.currentText(), self.msdtcIP_input.text())

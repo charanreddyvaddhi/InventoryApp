@@ -4,14 +4,15 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from PyQt5.QtWidgets import QFormLayout, QLineEdit, QDialogButtonBox
 from forms.style_of_form import StyleOfForm
+from PyQt5.QtGui import QIcon
 
 class WindowsClusterForm(StyleOfForm):
     def __init__(self, parent=None, 
-                 WindowsClusterID=0, WindowsClusterIP='***.***.***.***', WindowsClusterName=''):
+                 WindowsClusterID=0, WindowsClusterIP='***.***.***.***', WindowsClusterName='.STC.CORP'):
         super().__init__(parent)
         self.setWindowTitle('Windows Cluster Form')
         self.setGeometry(50, 50, 400, 200)
-
+        self.setWindowIcon(QIcon("Forms.ico"))
         layout = QFormLayout()
 
         # Windows Cluster inputs

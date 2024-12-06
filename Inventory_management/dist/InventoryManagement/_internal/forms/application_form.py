@@ -2,15 +2,17 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from PyQt5.QtWidgets import QFormLayout, QLineEdit, QComboBox, QDialogButtonBox
+from database import get_department
+from PyQt5.QtGui import QIcon
 from forms.style_of_form import StyleOfForm
 
 class ApplicationForm(StyleOfForm):
     def __init__(self, parent=None, 
-                 ApplicationID=0, AppName='', AppOwner='', AppOwnerEmail='@yahoo.com', AppVersion='', AppDepartment='', AppComments='None', AppCriticality=''):
+                 ApplicationID=00000, AppName='', AppOwner='', AppOwnerEmail='@STC.COM.SA', AppVersion='', AppDepartment='', AppComments='None', AppCriticality=''):
         super().__init__(parent)
         self.setWindowTitle('Application Form')
         self.setGeometry(50, 50, 400, 300)
-
+        self.setWindowIcon(QIcon("Forms.ico"))
         layout = QFormLayout()
 
         # Application inputs
@@ -25,7 +27,7 @@ class ApplicationForm(StyleOfForm):
         self.appVersion_input = QLineEdit(self)
         self.appVersion_input.setText(AppVersion)
         self.appDepartment_input = QComboBox(self)
-        self.appDepartment_input.addItems(["AIO", "BIO", "CIO", "DIO", "EIO", "FIO"])
+        self.appDepartment_input.addItems(get_department())
         self.appDepartment_input.setCurrentText(AppDepartment)
         self.appComments_input = QLineEdit(self)
         self.appComments_input.setText(AppComments)

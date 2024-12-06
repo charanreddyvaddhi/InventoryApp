@@ -1,9 +1,10 @@
 ('F:\\CHARAN FILES\\LEARNINGS & '
- 'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\InventoryManagement.exe',
+ 'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\Inventorymanagement.exe',
  False,
  False,
  True,
- 'C:\\Users\\VCSR\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\bootloader\\images\\icon-windowed.ico',
+ ['F:\\CHARAN FILES\\LEARNINGS & '
+  'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\app_icon.ico'],
  None,
  False,
  False,
@@ -31,31 +32,31 @@
  None,
  None,
  'F:\\CHARAN FILES\\LEARNINGS & '
- 'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\InventoryManagement.pkg',
+ 'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\Inventorymanagement.pkg',
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\PYZ-00.pyz',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\localpycs\\struct.pyc',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\localpycs\\pyimod01_archive.pyc',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\localpycs\\pyimod02_importers.pyc',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\localpycs\\pyimod03_ctypes.pyc',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
    'F:\\CHARAN FILES\\LEARNINGS & '
-   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\InventoryManagement\\localpycs\\pyimod04_pywin32.pyc',
+   'CERTIFICATIONS\\PYTHON\\Pyt5\\Inventory_management\\build\\Inventorymanagement\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
    'C:\\Users\\VCSR\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
@@ -88,7 +89,7 @@
  [],
  False,
  False,
- 1731103322,
+ 1733509073,
  [('runw.exe',
    'C:\\Users\\VCSR\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
    'EXECUTABLE')],

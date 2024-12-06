@@ -3,15 +3,17 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from PyQt5.QtWidgets import QFormLayout, QLineEdit, QComboBox, QDialogButtonBox
+from database import get_osVersion
 from forms.style_of_form import StyleOfForm
+from PyQt5.QtGui import QIcon
 
 class NodeForm(StyleOfForm):
     def __init__(self, parent=None, 
-                 NodeID=0, NodeIP='***.***.***.***', NodeName='', NodeOSVersion='', NodeComments='Main Node', WinClusterID=0):
+                 NodeID=000, NodeIP='***.***.***.***', NodeName='.STC.CORP', NodeOSVersion='', NodeComments='Main Node', WinClusterID=0):
         super().__init__(parent)
         self.setWindowTitle('Node Form')
         self.setGeometry(50, 50, 400, 300)
-
+        self.setWindowIcon(QIcon("Forms.ico"))
         layout = QFormLayout()
 
         # Node inputs
@@ -22,7 +24,7 @@ class NodeForm(StyleOfForm):
         self.nodeName_input = QLineEdit(self)
         self.nodeName_input.setText(NodeName)
         self.nodeOS_input = QComboBox(self)
-        self.nodeOS_input.addItems(["Windows Server 2012", "Windows Server 2012 R2", "Windows Server 2016", "Windows Server 2019", "Windows Server 2022"])
+        self.nodeOS_input.addItems(get_osVersion())
         self.nodeOS_input.setCurrentText(NodeOSVersion)
         self.nodeComments_input = QLineEdit(self)
         self.nodeComments_input.setText(NodeComments)

@@ -7,17 +7,18 @@ a = Analysis(
     pathex=['.'],
     binaries=[],
     datas=[
-        ('forms/', 'forms/')
+        ('forms/', 'forms/'),
+        ('app_icon.ico', '.'),
+        ('config.ini', '.')  # Adding config.ini to the data
     ],
     hiddenimports=['PyQt5'],
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
+    noarchive=False,
+    optimize=0,
     cipher=block_cipher,
 )
-
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(
@@ -25,14 +26,15 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='InventoryManagement',
+    name='Inventorymanagement',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,  # Set to False to hide the console window
+    console=False,
+    icon='app_icon.ico',
 )
 
 coll = COLLECT(
@@ -43,5 +45,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='InventoryManagement',
+    name='Inventorymanagement',
 )

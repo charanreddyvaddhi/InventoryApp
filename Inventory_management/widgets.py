@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QAction, QTabWidget, QTableWidget, QFileDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QHeaderView, QMessageBox, QStyle, QTableWidgetItem
+from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QSize
 import pandas as pd
 from database import get_sql_connection
@@ -19,6 +20,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Inventory Management')
+        self.setWindowIcon(QIcon("app_icon.ico"))
         self.setGeometry(100, 100, 800, 600)
 
         self.setStyleSheet(STYLESHEET)

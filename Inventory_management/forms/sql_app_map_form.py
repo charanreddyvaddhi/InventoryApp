@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from PyQt5.QtWidgets import QFormLayout, QHBoxLayout, QComboBox, QLabel, QPushButton, QDialog
 from database import get_sql_clusters, get_applications, insert_sql_cluster_application, delete_sql_cluster_application
 from forms.style_of_form import StyleOfForm
+from PyQt5.QtGui import QIcon
 
 class SQL_App_Map_Window(StyleOfForm):
     def __init__(self):
@@ -14,7 +15,7 @@ class SQL_App_Map_Window(StyleOfForm):
     def init_ui(self):
         self.setWindowTitle("Add SQL Cluster to Application")
         self.setGeometry(50, 50, 100, 100)
-
+        self.setWindowIcon(QIcon("Mapping.ico"))
         form_layout = QFormLayout()
         button_layout = QHBoxLayout()
 

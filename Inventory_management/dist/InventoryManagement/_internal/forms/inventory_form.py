@@ -3,17 +3,19 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from PyQt5.QtWidgets import (QFormLayout, QLineEdit, QComboBox, QDialogButtonBox, QScrollArea, QWidget, QVBoxLayout)
+from database import get_department, get_edition, get_osVersion, get_sqltype, get_sqlversion
 from forms.style_of_form import StyleOfForm
+from PyQt5.QtGui import QIcon
 
 class InventoryForm(StyleOfForm):
     def __init__(self, parent=None, 
-                 WindowsClusterID=5, WindowsClusterIP='192.168.1.5', WindowsClusterName='Cluster5.stc.corp',
-                 NodeID=109, NodeIP='192.168.1.51', NodeName='NodeI', NodeOSVersion='', NodeComments='Main Node', 
-                 SQLClusterID=1007, SQLClusterIP='192.168.1.151', SQLClusterName='SQLCluster7', SQLType='FCI', SQLInstanceName='MSSQLServer', SQLPort='1433', SQLServerVersion='',  NARsRaised='None', SQLComments='None', SQLServerEdition='', MSDTCIP='',
-                 ApplicationID=10005, AppName='App5', AppOwner='Ram', AppOwnerEmail='Ram@yahoo.com', AppVersion='1.1.1.', AppDepartment='', AppComments='None', AppCriticality=''):
+                 WindowsClusterID=0, WindowsClusterIP='***.***.***.***', WindowsClusterName='.STC.CORP',
+                 NodeID=000, NodeIP='***.***.***.***', NodeName='.STC.CORP', NodeOSVersion='', NodeComments='Main Node', 
+                 SQLClusterID=0000, SQLClusterIP='***.***.***.***', SQLClusterName='.STC.CORP', SQLType='', SQLInstanceName='MSSQLSERVER', SQLPort='1433', SQLServerVersion='',  NARsRaised='NAR', SQLComments='None', SQLServerEdition='', MSDTCIP='***.***.***.***',
+                 ApplicationID=00000, AppName='', AppOwner='', AppOwnerEmail='@STC.COM.SA', AppVersion='', AppDepartment='', AppComments='None', AppCriticality=''):
         super().__init__(parent)
         self.setWindowTitle('Inventory Form')
-        
+        self.setWindowIcon(QIcon("Forms.ico"))                
         scroll_area = QScrollArea(self)
         scroll_area.setWidgetResizable(True)
         scroll_widget = QWidget()
@@ -36,7 +38,7 @@ class InventoryForm(StyleOfForm):
         self.nodeName_input = QLineEdit(self)
         self.nodeName_input.setText(str(NodeName))
         self.nodeOS_input = QComboBox(self)
-        self.nodeOS_input.addItems(["Windows Server 2012", "Windows Server 2012 R2" ,"Windows Server 2016", "Windows Server 2019", "Windows Server 2022"])
+        self.nodeOS_input.addItems(get_osVersion())
         self.nodeOS_input.setCurrentText(NodeOSVersion)
         self.nodeComments_input = QLineEdit(self)
         self.nodeComments_input.setText(str(NodeComments))
@@ -48,21 +50,22 @@ class InventoryForm(StyleOfForm):
         self.sqlClustIP_input.setText(str(SQLClusterIP))
         self.sqlClustName_input = QLineEdit(self)
         self.sqlClustName_input.setText(str(SQLClusterName))
-        self.sqlType_input = QLineEdit(self)
-        self.sqlType_input.setText(SQLType)
+        self.sqlType_input = QComboBox(self)
+        self.sqlType_input.addItems(get_sqltype())
+        self.sqlType_input.setCurrentText(SQLType) 
         self.sqlInstanceName_input = QLineEdit(self)
         self.sqlInstanceName_input.setText(SQLInstanceName)
         self.sqlPort_input = QLineEdit(self)
         self.sqlPort_input.setText(SQLPort)
         self.sqlserverversion_input = QComboBox(self)
-        self.sqlserverversion_input.addItems(["Microsoft SQL Server 2012", "Microsoft SQL Server 2014", "Microsoft SQL Server 2016", "Microsoft SQL Server 2019", "Microsoft SQL Server 2022"])
+        self.sqlserverversion_input.addItems(get_sqlversion())
         self.sqlserverversion_input.setCurrentText(SQLServerVersion)
         self.narsRaised_input = QLineEdit(self)
         self.narsRaised_input.setText(NARsRaised)
         self.sqlComments_input = QLineEdit(self)
         self.sqlComments_input.setText(SQLComments)
         self.sqlServerEdition_input = QComboBox(self)
-        self.sqlServerEdition_input.addItems(["Web","Express Edition","Developer Edition", "Standard Edition", "Enterprise Edition"])
+        self.sqlServerEdition_input.addItems(get_edition())
         self.sqlServerEdition_input.setCurrentText(SQLServerEdition)
         self.msdtcIP_input = QLineEdit(self)
         self.msdtcIP_input.setText(MSDTCIP)
@@ -80,7 +83,7 @@ class InventoryForm(StyleOfForm):
         self.appVersion_input = QLineEdit(self)
         self.appVersion_input.setText(AppVersion)
         self.appDepartment_input = QComboBox(self)
-        self.appDepartment_input.addItems(["AIO", "BIO", "CIO", "DIO", "EIO", "FIO"])
+        self.appDepartment_input.addItems(get_department())
         self.appDepartment_input.setCurrentText(AppDepartment)
         self.appComments_input = QLineEdit(self)
         self.appComments_input.setText(AppComments)
@@ -153,7 +156,7 @@ class InventoryForm(StyleOfForm):
         SQLClusterID = self.sqlClustId_input.text()
         SQLClusterIP = self.sqlClustIP_input.text()
         SQLClusterName = self.sqlClustName_input.text()
-        SQLType = self.sqlType_input.text()
+        SQLType = self.sqlType_input.currentText()
         SQLInstanceName = self.sqlInstanceName_input.text()
         SQLPort = self.sqlPort_input.text()
         SQLServerVersion = self.sqlserverversion_input.currentText() #as we are using drop down 
